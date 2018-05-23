@@ -1,1 +1,162 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~element-angular/theme/index.css";
+body {
+    overflow-y: auto;
+}
+.input-sm {
+    width: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 4px;
+}
+.pagination-bottom {
+    background: #ffffff;
+    border-bottom: 1px solid #F0F8FF;
+    height: 36px;
+    border-right: medium none;
+    border-top: 1px solid #D5D5D5;
+    font-weight: normal;
+    margin-top: -1px;
+    padding: 0px;
+}
+.datatable-info {
+    padding-top: 5px;
+}
+#header {
+    background-color: #1f262d;
+    margin-top: -20px;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 3px;
+    vertical-align: middle;
+}
+.table-nobtn>tbody>tr>td, .table-nobtn>tbody>tr>th, .table-nobtn>tfoot>tr>td, .table-nobtn>tfoot>tr>th, .table-nobtn>thead>tr>td, .table-nobtn>thead>tr>th {
+    padding: 8px;
+    vertical-align: middle;
+}
+.ui-widget-header .ui-button:enabled:active, .ui-widget-content .ui-button:enabled:active, .ui-widget.ui-button:enabled:active, .ui-button:enabled:active {
+    border: 1px solid #dadee0;
+    background: #e0e0e0;
+    color: #333;
+}
+.ui-widget-header .ui-button:enabled:hover, .ui-widget-header .ui-button:focus, .ui-widget-content .ui-button:enabled:hover, .ui-widget-content .ui-button:focus, .ui-widget.ui-button:enabled:hover, .ui-widget.ui-button:focus, .ui-button:enabled:hover, .ui-button:focus {
+    border: 1px solid #dadee0;
+    background: #e0e0e0;
+    color: #333;
+}
+a.disabled {
+    background: #bbbbbb !important;
+    cursor: no-drop;
+    pointer-events: none;
+}
+.ui-tree-selectable {
+    margin: auto;
+    width: 99%;
+}
+.widget-content {
+    position: relative;
+}
+.table-edit {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #222;
+    color: #747575;
+}
+div.row {
+    max-height: 46px;
+}
+div.row.row-form {
+    max-height: none;
+}
+.row.row-form {
+    padding: 6px 10px;
+}
+.row.row-form .col-label {
+    color: #409eff;
+    text-align: right;
+    padding-right: 6px;
+}
+.row.row-form .col-content {
+    padding-left: 1px;
+}
+.row.row-form .col-label-edit {
+    color: #409eff;
+    text-align: right;
+    padding-right: 6px;
+    padding-top: 8px;
+}
+.col-content .el-select {
+    width: 100% !important;
+}
+.col-content .el-select .el-select-dropdown {
+    width: 100% !important;
+}
+.text-center {
+    text-align: center;
+}
+.el-switch__label {
+    color: #cacaca;
+}
+.btn-text {
+    color: #409EFF;
+    background: 0 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-color: transparent;
+}
+.btn-text.focus, .btn-text:focus, .btn-text:hover {
+    color: #66b1ff;
+    border-color: transparent;
+    background-color: transparent;
+}
+.table thead tr th {
+    font-size: 14px;
+    padding: 6px;
+    border-top: 1px solid #ddd !important;
+}
+.el-tag, .slideInLeft-transition, .slideInRight-transition {
+    display: none;
+}
+.modal-body .el-tag, .slideInLeft-transition, .slideInRight-transition {
+    display: inline-block;
+}
+.pagination-bottom .col-xs-12 {
+    text-align: right;
+}
+.min-dialog .el-dialog {
+    width: 25%;
+    min-width: 300px;
+}
+.min-dialog .el-dialog .ng-star-inserted{
+    color: #ff7716;
+    font-size: 16px;
+}
+.col-label {
+    color: #409eff;
+    text-align: right;
+    padding-right: 6px;
+}
+.selector-group .form-control[readonly] {
+    background: #ffffff;
+    cursor: pointer;
+}
+.selector-group .input-group-addon {
+    background-color: #fff;
+    cursor: pointer;
+}
+.modal {
+    top: 15%;
+}
+.el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width: 100%;
+}
+.el-input__icon {
+    line-height: 33px;
+}
+.el-input__inner {
+    height: 32px;
+    border-radius: 4px !important;
+}

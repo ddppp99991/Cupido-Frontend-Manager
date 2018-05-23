@@ -1,0 +1,109 @@
+<div id="content-header">
+        <div id="breadcrumb">
+            <a routerLink="/workspace" title="回首页" class="tip-bottom">
+                <i class="fa fa-home"></i> 首页</a>
+            <a href="javascript:;" class="tip-bottom">系统配置</a>
+            <a href="javascript:;" class="tip-bottom">市场配置</a>
+        </div>
+    </div>
+    
+    <div id="iframe-main" frameborder='0' style="width:100%;">
+        <div id="content-header">
+            <h1></h1>
+        </div>
+    
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="widget-box">
+                        <div class="widget-title">
+                            <span class="icon">
+                                <i class="fa fa-th"></i>
+                            </span>
+                            <h5>市场配置</h5>
+                        </div>
+    
+                        <div class="widget-content nopadding">
+                            <div class="dataTables_length">
+                                <label>
+                                    每页显示
+                                    <select name="pageSize" class="form-control input-sm">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="75">75</option>
+                                        <option value="100">100</option>
+                                    </select> 条记录
+                                </label>
+                            </div>
+                            <label class="table-edit">
+                                <button class="btn btn-text" data-toggle="modal" data-target="#marketInputModal">
+                                    <i class="el-icon-plus"></i>新增</button>
+                            </label>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>市场名称</th>
+                                        <th>是否允许自买自卖</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd gradeX">
+                                        <td>DTC/CNYT</td>
+                                        <td>N</td>
+                                        <td class="center">
+                                            <button class="btn btn-text" data-toggle="modal" data-target="#marketInputModal">
+                                                <i class="el-icon-edit"></i>编辑</button>
+                                            <button class="btn btn-text">
+                                                <i class="el-icon-delete"></i>删除</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="even gradeC">
+                                        <td>RBC/CNYT</td>
+                                        <td>Y</td>
+                                        <td class="center">
+                                            <button class="btn btn-text" data-toggle="modal" data-target="#marketInputModal">
+                                                <i class="el-icon-edit"></i>编辑</button>
+                                            <button class="btn btn-text">
+                                                <i class="el-icon-delete"></i>删除</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeA">
+                                        <td>ETH/CNYT</td>
+                                        <td>Y</td>
+                                        <td class="center">
+                                            <button class="btn btn-text" data-toggle="modal" data-target="#marketInputModal">
+                                                <i class="el-icon-edit"></i>编辑</button>
+                                            <button class="btn btn-text">
+                                                <i class="el-icon-delete"></i>删除</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="even gradeA">
+                                        <td>BTC/CNYT</td>
+                                        <td>Y</td>
+                                        <td class="center">
+                                            <button class="btn btn-text" data-toggle="modal" data-target="#marketInputModal">
+                                                <i class="el-icon-edit"></i>编辑</button>
+                                            <button class="btn btn-text">
+                                                <i class="el-icon-delete"></i>删除</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+    
+                        </div>
+    
+                        <div class="fg-toolbar pagination-bottom">
+                            <div class="col-xs-12">
+                                <el-pagination [total]="500" [layout]="['prev', 'pager', 'next', 'jumper', 'total']" (modelChange)="sizeChange($event)">
+                                </el-pagination>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-market-input></app-market-input>

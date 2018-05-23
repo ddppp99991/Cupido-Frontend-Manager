@@ -1,0 +1,101 @@
+<div id="content-header">
+    <div id="breadcrumb">
+        <a routerLink="/workspace" title="回首页" class="tip-bottom">
+            <i class="fa fa-home"></i> 首页</a>
+        <a href="javascript:;" class="tip-bottom">身份信息认证</a>
+    </div>
+</div>
+
+<div id="iframe-main" frameborder='0' style="width:100%;">
+    <div id="content-header">
+        <h1></h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon">
+                            <i class="fa fa-th"></i>
+                        </span>
+                        <h5>身份信息认证</h5>
+                    </div>
+
+                    <div class="widget-content nopadding">
+                        <div class="dataTables_length">
+                            <label>
+                                每页显示
+                                <select name="pageSize" class="form-control input-sm">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="75">75</option>
+                                    <option value="100">100</option>
+                                </select> 条记录
+                            </label>
+                        </div>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>信息认证类型</th>
+                                    <th>姓氏</th>
+                                    <th>名字</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td>中国大陆地区</td>
+                                    <td>杜</td>
+                                    <td>鹏</td>
+                                    <td class="center">
+                                        <button class="btn btn-text" data-toggle="modal" data-target="#myModal">
+                                            <i class="el-icon-edit"></i>认证</button>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>中国大陆地区</td>
+                                    <td>杜</td>
+                                    <td>鹏</td>
+                                    <td class="center">
+                                        <button class="btn btn-text" data-toggle="modal" data-target="#myModal">
+                                            <i class="el-icon-edit"></i>认证</button>
+                                    </td>
+                                </tr>
+                                <tr class="odd gradeA">
+                                    <td>中国大陆地区</td>
+                                    <td>杜</td>
+                                    <td>鹏</td>
+                                    <td class="center">
+                                        <button class="btn btn-text" data-toggle="modal" data-target="#myModal">
+                                            <i class="el-icon-edit"></i>认证</button>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeA">
+                                    <td>中国大陆地区</td>
+                                    <td>杜</td>
+                                    <td>鹏</td>
+                                    <td class="center">
+                                        <button class="btn btn-text" data-toggle="modal" data-target="#myModal">
+                                            <i class="el-icon-edit"></i>认证</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="fg-toolbar pagination-bottom">
+                        <div class="col-xs-12">
+                            <el-pagination [total]="500" [layout]="['prev', 'pager', 'next', 'jumper', 'total']" (modelChange)="sizeChange($event)">
+                            </el-pagination>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-verification-input></app-verification-input>

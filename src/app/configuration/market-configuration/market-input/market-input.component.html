@@ -1,0 +1,51 @@
+<!-- Modal -->
+<div class="modal fade" id="marketInputModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">市场配置</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label col-label-edit">
+                            货币A
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <input type="name" name="name" [(ngModel)]="name" class="form-control" placeholder="请输入权限名称" />
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label-edit">
+                            货币B
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <input type="description" name="description" [(ngModel)]="description" class="form-control" placeholder="请输入权限名称" />
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label-edit">
+                                是否允许自买自卖
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <el-select [model]="authority"  [clearable]="true" [multiple]="false" size="small" style="width:100%">
+                                <el-option *ngFor="let item of authoritys" [label]="item.label" [value]="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">确认</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

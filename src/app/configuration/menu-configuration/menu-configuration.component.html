@@ -1,0 +1,62 @@
+<div id="content-header">
+    <div id="breadcrumb">
+        <a routerLink="/workspace" title="回首页" class="tip-bottom">
+            <i class="fa fa-home"></i> 首页</a>
+        <a href="javascript:;" class="tip-bottom">菜单管理</a>
+    </div>
+</div>
+
+<div id="iframe-main" frameborder='0' style="width:100%;">
+    <div id="content-header">
+        <h1></h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon">
+                            <i class="fa fa-th"></i>
+                        </span>
+                        <h5>菜单管理</h5>
+                    </div>
+                    <p-tree [value]="filesTree4" layout="horizontal" selectionMode="single" [(selection)]="selectedFiles2" (onNodeSelect)="nodeSelect($event)"></p-tree>
+                    <!-- <div>Selected Nodes: <span *ngFor="let file of selectedFiles2">{{file.label}} </span></div> -->
+                    <div>Selected Nodes:
+                        <span>Selected Node: {{selectedFiles2 ? selectedFiles2.label : 'none'}}</span>
+                    </div>
+                    <form class="form-inline" style="position: absolute;top: 0;right: 0px;">
+                        <div class="form-group">
+                            <label>菜单</label>
+                            <input type="text" class="form-control" [(ngModel)]="selected.label" name="selected.label" placeholder="Jane Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>路由</label>
+                            <input type="email" class="form-control" [(ngModel)]="selected.data" name="selected.data" placeholder="jane.doe@example.com">
+                        </div>
+                        <button type="submit" class="btn btn-primary">编辑</button>
+                        <button type="submit" class="btn btn-warning" (click)="deleteMenu()">删除</button>
+                    </form>
+                    <form class="form-inline" style="position: absolute;top: 0;right: 557px;">
+                        <div class="form-group">
+                            <label>菜单</label>
+                            <input type="text" class="form-control" [(ngModel)]="label" name="label" placeholder="Jane Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>路由</label>
+                            <input type="email" class="form-control" [(ngModel)]="data" name="data" placeholder="jane.doe@example.com">
+                        </div>
+                        <button type="submit" class="btn btn-info" (click)="addMenu()">新增</button>
+                    </form>
+                    <form class="form-inline" style="position: absolute;top: 43px;right: 17px;">
+                        <button type="submit" class="btn btn-info" (click)="addMenu()">提交</button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<app-verification-input></app-verification-input>

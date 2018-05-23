@@ -1,0 +1,48 @@
+<!-- Modal -->
+<div class="modal fade" id="authInputModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">权限配置</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label col-label-edit">
+                            权限名称
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <input type="name" name="name" [(ngModel)]="name" class="form-control" placeholder="请输入权限名称"/>
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            描述
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <textarea class="form-control" [(ngModel)]="description" name="description" placeholder="请输入权限描述" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            权限
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <el-tree [model]="data" [show-checkbox]="true"></el-tree>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">确认</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div id="particles-js"></div>
+<div id="loginbox">
+    <div class="normal_text">
+        <h2>BitCupido Admin</h2>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" class="form-vertical">
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <input type="text" formControlName="username" name="username" [(ngModel)]="username" />
+                    <div *ngIf="formErrors.username" class="info-error">{{ formErrors.username }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <input type="password" formControlName="password" name="password" [(ngModel)]="password" />
+                    <div *ngIf="formErrors.password" class="info-error">{{ formErrors.password }}</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <button id="submit" type="submit" class="btn btn-success btn-submit" [disabled]="!loginForm.valid">登 录</button>
+                </div>
+            </div>
+        </div>
+        <div class="normal_text">
+            推荐使用支持HTML5的浏览器，如chrome、IE9+等<br>
+            <span>版权所有 &copy; 2018-2019 Cupido.com All Rights Reserved </span>
+        </div>
+    </form>
+    
+</div>

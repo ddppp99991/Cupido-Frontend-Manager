@@ -1,0 +1,14 @@
+.column {
+    width: 350px;
+    margin: 0px auto;
+    height: 430px;
+}
+.column .select {
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 411px;
+    margin-top: 3px;
+}
+.modal {
+    left: 25%;
+}

@@ -1,0 +1,37 @@
+<!-- Modal -->
+<div class="modal fade" id="selectorEMInputModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="width: 400px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">选择人员</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row row-form">
+                        <div class="column">
+                            <div class="col-xs-7 col-content">
+                                <input type="name" name="name" [(ngModel)]="name" class="form-control" />
+                            </div>
+                            <div class="col-xs-5 col-content">
+                                <button class="btn btn-info">搜索</button>
+                                <button class="btn btn-default">重置</button>
+                            </div>
+                            <select class="select" name="selected" [(ngModel)]="selected" id="" multiple>
+                                <option *ngFor="let email of emails" [value]="email" (dblclick)="callback()">{{email.email}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="callback()">确认</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="clearback()">清空</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

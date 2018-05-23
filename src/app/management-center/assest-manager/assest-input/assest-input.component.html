@@ -1,0 +1,80 @@
+<!-- Modal -->
+<div class="modal fade" id="assestInputModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">用户资产</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            用户邮箱
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            1961455515@qq.com
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            货币
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            DTC
+                        </div>
+
+                        <div class="col-xs-2 col-label">
+                            全称
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            DTC
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label-edit">
+                            总额
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            <input type="description" name="description" [(ngModel)]="description" value="999126.58635" class="form-control" placeholder="请输入总额"
+                            />
+                        </div>
+                        <div class="col-xs-2 col-label-edit">
+                            可用余额
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            <input type="description" name="description" [(ngModel)]="description" value="980966.60635" class="form-control" placeholder="请输入可用余额"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label-edit">
+                            下单冻结
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            <input type="description" name="description" [(ngModel)]="description" value="18159.98" class="form-control" placeholder="请输入权限名称"
+                            />
+                        </div>
+                        <div class="col-xs-2 col-label-edit">
+                                BTC估值
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            <input type="description" name="description" [(ngModel)]="description" value="568.998" class="form-control" placeholder="请输入权限名称" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">确认</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<!-- Modal -->
+<div class="modal fade" id="selfInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">个人信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            姓名
+                        </div>
+                        <div class="col-xs-4 col-content">
+                            {{user ? user.nickname : '...'}}
+                        </div>
+                        <div class="col-xs-2 col-label">
+                            性别
+                        </div>
+                        <div class="col-xs-4 col-content">
+                            {{user ? user.gender : '...'}}
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            账号
+                        </div>
+                        <div class="col-xs-4 col-content">
+                            {{user ? user.username : '...'}}
+                        </div>
+                        <div class="col-xs-2 col-label">
+                            部门
+                        </div>
+                        <div class="col-xs-4 col-content">
+                            {{user ? user.department : '...'}}
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            电话
+                        </div>
+                        <div class="col-xs-4 col-content">
+                            {{user ? user.telephone : '...'}}
+                        </div>
+                        <div class="col-xs-2 col-label">
+                            状态
+                        </div>
+                        <div class="col-xs-4 col-content">
+                            {{user ? user.station : '...'}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-primary">确认</button> -->
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="close()">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

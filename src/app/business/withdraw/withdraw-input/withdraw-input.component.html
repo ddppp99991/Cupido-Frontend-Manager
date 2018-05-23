@@ -1,0 +1,89 @@
+<!-- Modal -->
+<div class="modal fade" id="withdrawInputModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">用户提现</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            币种
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            CNYT
+                        </div>
+                        <div class="col-xs-2 col-label">
+                            提现数量
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            100
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            手续费
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            15
+                        </div>
+                        <div class="col-xs-2 col-label">
+                            最终获得
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            85
+                        </div>
+                    </div>
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            申请时间
+                        </div>
+                        <div class="col-xs-3 col-content">
+                            2018-04-20 10:15:04
+                        </div>
+                    </div>
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label">
+                            提现地址
+                        </div>
+                        <div class="col-xs-4 col-content">
+                            0XDSADFVCDS01VC4DS5ofcxzsdfffsvvac0wd0f
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label col-label-edit">
+                            是否通过
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <select name="" class="form-control">
+                                <option value="">请选择</option>
+                                <option value="">通过</option>
+                                <option value="">不通过</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label col-label-edit">
+                            备注
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <input type="name" name="name" [(ngModel)]="name" class="form-control" placeholder="请输入备注" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">确认</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

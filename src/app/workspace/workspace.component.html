@@ -1,0 +1,41 @@
+<div id="header">
+    <h1>
+        <a href="dashboard.html">BitCupido 后台管理</a>
+    </h1>
+</div>
+
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li class="dropdown" id="profile-messages">
+            <a href="#" data-toggle="modal" data-target="#selfInfoModal" (click)="openSelfInfoModal()">
+                <i class="fa fa-user"></i>&nbsp;
+                <span class="text">欢迎你，{{user ? user.nickname : '加载中'}}</span>&nbsp;
+            </a>
+        </li>
+        <li class="">
+            <a title="" href="javascript:;" (click)="toggle2 = true">
+                <i class="fa fa-power-off"></i>
+                <span class="text">&nbsp;退出系统</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<app-menu></app-menu>
+
+<div id="content">
+    <router-outlet></router-outlet>
+</div>
+<!-- 个人信息modal -->
+<app-self-info *ngIf="selfInfoModal" [user]="user" [oppener]="this"></app-self-info>
+
+<el-dialog [(visible)]="toggle2" [width]="10" [el-class]="'min-dialog'">
+    <ng-template #title>
+        <span><i class="el-icon-warning"></i>系统消息</span>
+    </ng-template>
+    <span>确认退出登录？</span>
+    <ng-template #footer>
+        <el-button type="primary" (click)="logout()">确认</el-button>
+        <el-button (click)="toggle2 = false">取消</el-button>
+    </ng-template>
+</el-dialog>
