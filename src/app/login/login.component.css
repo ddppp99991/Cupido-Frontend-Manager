@@ -24,6 +24,7 @@
 }
 .btn-submit:disabled{
     cursor: no-drop;
+    border: 1px solid #ccc;
 }
 .info-error {
     position: absolute;
@@ -31,4 +32,27 @@
     text-align: left;
     padding-left: 45px;
     padding-top: 3px;
+}
+#loginbox{
+    position: absolute;
+    left: 42%;
+    top: 5%;
+}
+#loginbox .main_input_box input {
+    border-radius: 20px;
+}
+.btn-submit {
+    background: none;
+    border-radius: 20px;
+}
+.btn-success.disabled.focus, .btn-success.disabled:focus, .btn-success.disabled:hover, .btn-success[disabled].focus, .btn-success[disabled]:focus, .btn-success[disabled]:hover, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:hover {
+    background-color: #2f353d;
+    border-color: #616161;
+}
+#loginbox .normal_text h2 {
+    color: #7f8282;
+}
+.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover {
+    color: #fff;
+    background-color: #212121;
 }

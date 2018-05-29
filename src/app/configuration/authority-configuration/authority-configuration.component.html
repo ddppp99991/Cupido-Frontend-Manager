@@ -37,55 +37,29 @@
                             </label>
                         </div>
                         <label class="table-edit">
-                            <button class="btn btn-text" data-toggle="modal" data-target="#authInputModal">
+                            <button class="btn btn-text" data-toggle="modal" data-target="#authInputModal" (click)="openAuthorityModal()">
                                 <i class="el-icon-plus"></i>新增</button>
                         </label>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>编号</th>
                                     <th>权限名称</th>
                                     <th>描述</th>
+                                    <th>菜单</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="odd gradeX">
-                                    <td>admin</td>
-                                    <td>adminadmin</td>
+                                <tr class="odd gradeX" *ngFor="let permission of permissions; let idx=index">
+                                    <td>{{idx + 1}}</td>
+                                    <td>{{permission.name}}</td>
+                                    <td>{{permission.description}}</td>
+                                    <td>{{permission.list}}</td>
                                     <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#authInputModal">
+                                        <button class="btn btn-text" data-toggle="modal" data-target="#authInputModal" (click)="openAuthorityModal(permission)">
                                             <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
-                                            <i class="el-icon-delete"></i>删除</button>
-                                    </td>
-                                </tr>
-                                <tr class="even gradeC">
-                                    <td>admin</td>
-                                    <td>adminadmin</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#authInputModal">
-                                            <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
-                                            <i class="el-icon-delete"></i>删除</button>
-                                    </td>
-                                </tr>
-                                <tr class="odd gradeA">
-                                    <td>admin</td>
-                                    <td>adminadmin</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#authInputModal">
-                                            <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
-                                            <i class="el-icon-delete"></i>删除</button>
-                                    </td>
-                                </tr>
-                                <tr class="even gradeA">
-                                    <td>admin</td>
-                                    <td>adminadmin</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#authInputModal">
-                                            <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
+                                        <button class="btn btn-text" (click)="deleteBefore(permission)">
                                             <i class="el-icon-delete"></i>删除</button>
                                     </td>
                                 </tr>
@@ -94,16 +68,26 @@
 
                     </div>
 
-                    <div class="fg-toolbar pagination-bottom">
+                    <!-- <div class="fg-toolbar pagination-bottom">
                         <div class="col-xs-12">
                             <el-pagination [total]="500" [layout]="['prev', 'pager', 'next', 'jumper', 'total']" (modelChange)="sizeChange($event)">
                             </el-pagination>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-<app-authority-input></app-authority-input>
+<app-authority-input *ngIf='openAuthorityStatus' [opennerComponent]="this"></app-authority-input>
+<el-dialog [(visible)]="toggle" [width]="10" [el-class]="'min-dialog'">
+    <ng-template #title>
+        <span><i class="el-icon-warning"></i>系统消息</span>
+    </ng-template>
+    <span>{{confirminfo}}</span>
+    <ng-template #footer>
+        <el-button type="primary" (click)="confirm()">确认</el-button>
+        <el-button (click)="toggle = false">取消</el-button>
+    </ng-template>
+</el-dialog>

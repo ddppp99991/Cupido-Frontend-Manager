@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth.service';
+import { ElMessageService } from 'element-angular';
+import { Router } from '@angular/router'; //导入router服务
+
 declare var $: any; //引入jquery
 @Component({
     selector: 'app-menu',
@@ -6,13 +10,24 @@ declare var $: any; //引入jquery
     styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
+    menuItems: any;
     constructor() { }
 
     ngOnInit() {
         this.initMenuItem();
+        this.menuItems=[
+            {id:'123',name: '业务处理',route:'main',child:[{id:'123',name: '业务处理',route:'menuconfig'},{id:'123',name: '业务处理',route:'main'}]},
+            {id:'123',name: '业务处理',route:'main',child:[{id:'123',name: '业务处理',route:'main'},{id:'123',name: '业务处理',route:'main'}]},
+        ]
     }
-
+    menuItemClick(event){
+        
+        if(event.open){
+            event.open = undefined;
+        }else{
+            event.open = 'open'
+        }
+    }
     initMenuItem() {
         $('.menu_a').click(function (e) {
             $(".menu_a").parent('li').removeClass('active');
@@ -45,5 +60,9 @@ export class MenuComponent implements OnInit {
                 li.addClass('open');
             }
         });
+    }
+    testClick(){
+        console.log('event');
+        
     }
 }

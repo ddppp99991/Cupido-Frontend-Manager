@@ -7,15 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserConfigurationComponent implements OnInit {
     currentPage: any = 1;//当前页
-    loading: boolean = true;
+    loading: boolean = false;
     constructor() { }
 
     ngOnInit() {
-        let that = this;
-        setTimeout(function () {
-            that.loading = false;;
-          }, 3000);
-    
+
     }
 
     sizeChange(event){

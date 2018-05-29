@@ -160,3 +160,14 @@ div.row.row-form {
     height: 32px;
     border-radius: 4px !important;
 }
+.el-submenu__title {
+    color: #ffffff;
+    background: #2f363f;
+}
+.el-submenu__title:hover {
+    background-color: #1b1e23;
+}
+.el-menu-item:focus, .el-menu-item:hover {
+    outline: 0;
+    background-color: #1e242c;
+}

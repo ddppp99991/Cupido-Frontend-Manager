@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; //导入router服务
 import { AuthService } from '../auth.service';
 import {CheckboxModule} from 'primeng/checkbox';
+import { ElMessageService } from 'element-angular';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
         }
     };
     // 添加 fb 属性，用来创建表单
-    constructor(private fb: FormBuilder,private router: Router, private auth: AuthService) { }
+    constructor(private fb: FormBuilder,private router: Router, private auth: AuthService,private message: ElMessageService) { }
 
     ngOnInit() {
         // 初始化时构建表单
@@ -92,15 +93,23 @@ export class LoginComponent implements OnInit {
     onSubmit(event) {
         if(event.status == 'VALID'){
             let payload = {
-                'username': this.username,
-                'password': this.password
+                'username': event.value.username,
+                'password': event.value.password
             }
             this.auth.login(payload).subscribe((resp) => {
+                console.log(resp);
+                
                 if (resp != null && resp != undefined && resp.status == '200') {
                     let data = resp.body;
                     localStorage.setItem('isfirstlogin', 'false');
                     //跳过验证 直接登录
+                    this.message['success']("登陆成功。");
                     this.router.navigateByUrl("/workspace");
+                }else if (resp != null && resp != undefined && resp.status == '504') {
+                    //跳过验证 直接登录
+                    this.message['error']("连接异常，请联系系统管理员。");
+                }else{
+                    this.message['warning']("登录失败，请检查用户名和密码。");
                 }
             });
         }else{

@@ -21,7 +21,7 @@
                         </span>
                         <h5>菜单管理</h5>
                     </div>
-                    <p-tree [value]="filesTree4" layout="horizontal" selectionMode="single" [(selection)]="selectedFiles2" (onNodeSelect)="nodeSelect($event)"></p-tree>
+                    <p-tree [value]="filesTree" layout="horizontal" selectionMode="single" [(selection)]="selectedFiles2" (onNodeSelect)="nodeSelect($event)"></p-tree>
                     <!-- <div>Selected Nodes: <span *ngFor="let file of selectedFiles2">{{file.label}} </span></div> -->
                     <div>Selected Nodes:
                         <span>Selected Node: {{selectedFiles2 ? selectedFiles2.label : 'none'}}</span>
@@ -29,29 +29,25 @@
                     <form class="form-inline" style="position: absolute;top: 0;right: 0px;">
                         <div class="form-group">
                             <label>菜单</label>
-                            <input type="text" class="form-control" [(ngModel)]="selected.label" name="selected.label" placeholder="Jane Doe">
+                            <input type="text" class="form-control" [(ngModel)]="selected.label" name="selected.label" >
                         </div>
                         <div class="form-group">
                             <label>路由</label>
-                            <input type="email" class="form-control" [(ngModel)]="selected.data" name="selected.data" placeholder="jane.doe@example.com">
+                            <input type="email" class="form-control" [(ngModel)]="selected.data" name="selected.data" >
                         </div>
-                        <button type="submit" class="btn btn-primary">编辑</button>
-                        <button type="submit" class="btn btn-warning" (click)="deleteMenu()">删除</button>
+                        <button type="submit" class="btn btn-primary" (click)="updateMenuBefore()">保存</button>
+                        <button type="submit" class="btn btn-warning" (click)="deleteMenuBefore()">删除</button>
                     </form>
                     <form class="form-inline" style="position: absolute;top: 0;right: 557px;">
                         <div class="form-group">
-                            <label>菜单</label>
-                            <input type="text" class="form-control" [(ngModel)]="label" name="label" placeholder="Jane Doe">
+                            <label>新增菜单</label>
+                            <input type="text" class="form-control" [(ngModel)]="label" name="label">
                         </div>
                         <div class="form-group">
                             <label>路由</label>
-                            <input type="email" class="form-control" [(ngModel)]="data" name="data" placeholder="jane.doe@example.com">
+                            <input type="email" class="form-control" [(ngModel)]="data" name="data">
                         </div>
-                        <button type="submit" class="btn btn-info" (click)="addMenu()">新增</button>
-                    </form>
-                    <form class="form-inline" style="position: absolute;top: 43px;right: 17px;">
-                        <button type="submit" class="btn btn-info" (click)="addMenu()">提交</button>
-
+                        <button type="submit" class="btn btn-info" (click)="addMenuBefore()">新增</button>
                     </form>
                 </div>
             </div>
@@ -60,3 +56,14 @@
     </div>
 </div>
 <app-verification-input></app-verification-input>
+
+<el-dialog [(visible)]="toggle" [width]="10" [el-class]="'min-dialog'">
+    <ng-template #title>
+        <span><i class="el-icon-warning"></i>系统消息</span>
+    </ng-template>
+    <span>{{confirminfo}}</span>
+    <ng-template #footer>
+        <el-button type="primary" (click)="confirm()">确认</el-button>
+        <el-button (click)="toggle = false">取消</el-button>
+    </ng-template>
+</el-dialog>

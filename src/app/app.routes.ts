@@ -38,6 +38,7 @@ import { WithdrawComponent } from './business/withdraw/withdraw.component';
 import { WithdrawHistoryComponent } from './query-center/withdraw-history/withdraw-history.component';
 const adminChildRoutes: Routes = [
     { path: '', component: VerificationComponent },// 身份验证
+    { path: 'verification', component: VerificationComponent },// 身份验证
     { path: 'menuconfig', component: MenuConfigurationComponent },//菜单配置
     { path: 'authorityconfig', component: AuthorityConfigurationComponent },//权限配置
     { path: 'roleconfig', component: RoleConfigurationComponent },//角色配置

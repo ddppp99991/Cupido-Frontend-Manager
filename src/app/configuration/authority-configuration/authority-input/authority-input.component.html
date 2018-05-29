@@ -34,14 +34,15 @@
                             权限
                         </div>
                         <div class="col-xs-6 col-content">
-                            <el-tree [model]="data" [show-checkbox]="true"></el-tree>
+                            <!-- <p-tree [value]="filesTree" selectionMode="checkbox" [(selection)]="selectedFiles"></p-tree> -->
+                            <el-tree [model]="data3" [show-checkbox]="true" [default-checked-keys]="defaulet" #tree></el-tree>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">确认</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" (click)="confirmbefore()">确认</button>
+                <button type="button" class="btn btn-default close-button" data-dismiss="modal" (click)="close()">取消</button>
             </div>
         </div>
     </div>

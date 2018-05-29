@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+declare var $: any;
 @Component({
     selector: 'app-selector-em',
     templateUrl: './selector-em.component.html',
@@ -38,6 +38,7 @@ export class SelectorEmComponent implements OnInit {
 
     callback(){
         this.oppenercomponent.selectorBack(this.selected);
+        $('.btn-confirm').trigger('click');
     }
     clearback(){
         this.selected = [{value:"",id:""}];

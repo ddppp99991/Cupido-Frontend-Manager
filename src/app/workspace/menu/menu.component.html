@@ -1,13 +1,15 @@
 <div id="sidebar" style="OVERFLOW-Y: auto; OVERFLOW-X:hidden;height:500px;">
     <ul>
-        <li class="submenu active">
-            <a class="menu_a" href="javascript:;" link="welcome.html"><i class="fa fa-home"></i> <span class="menu1_name">首页</span></a> 
-        </li>
-        <li class="submenu"> 
+        <el-menu class="el-menu-vertical-demo" theme="dark">
+            <el-submenu index="1" title="{{menu.name}}" *ngFor="let menu of menuItems">
+                <el-menu-item index="1-1" to="/workspace/{{child.route}}" *ngFor="let child of menu.child">{{child.name}}</el-menu-item>
+            </el-submenu>
+        </el-menu>
+        <!-- <li class="submenu"> 
             <a href="javascript:;">
                 <i class="el-icon-document"></i> 
                 <span class="menu1_name">业务处理</span> 
-                <!-- <span class="label label-important">3</span> -->
+                
             </a>
             <ul>
                 <li><a class="menu_a" href="javascript:;" routerLink="/workspace"><i class="fa fa-caret-right"></i>身份信息认证</a></li>
@@ -18,7 +20,7 @@
             <a href="javascript:;">
                 <i class="fa fa-tv"></i> 
                 <span class="menu1_name">管理中心</span> 
-                <!-- <span class="label label-important">6</span> -->
+                
             </a>
             <ul>
                 <li><a class="menu_a" href="javascript:;" routerLink="recharge"><i class="fa fa-caret-right"></i>后台充值</a></li>
@@ -30,7 +32,7 @@
             <a href="javascript:;">
                 <i class="fa fa-cog"></i> 
                 <span class="menu1_name">系统配置</span> 
-                <!-- <span class="label label-important">5</span> -->
+                
             </a>
             <ul>
                 <li><a class="menu_a" href="javascript:;" routerLink="menuconfig"><i class="fa fa-caret-right"></i>菜单配置</a></li>
@@ -45,11 +47,11 @@
             <a href="javascript:;">
                 <i class="el-icon-search"></i> 
                 <span class="menu1_name">查询中心</span> 
-                <!-- <span class="label label-important">4</span> -->
+                
             </a>
             <ul>
                 <li><a class="menu_a" href="javascript:;" routerLink="withdrawhistory"><i class="fa fa-caret-right"></i>用户提现记录</a></li>
-                <li><a class="menu_a" href="javascript:;" link="error405.html"><i class="fa fa-caret-right"></i>身份信息认证记录</a></li>
+                <li><a class="menu_a" href="javascript:;" routerLink="verificationhistory"><i class="fa fa-caret-right"></i>身份信息认证记录</a></li>
                 <li><a class="menu_a" href="javascript:;" link="error405.html"><i class="fa fa-caret-right"></i>用户登录记录</a></li>
             </ul>
         </li>   
@@ -57,12 +59,12 @@
             <a href="javascript:;">
                 <i class="el-icon-view"></i> 
                 <span class="menu1_name">监控中心</span> 
-                <!-- <span class="label label-important">4</span> -->
+                
             </a>
             <ul>
                 <li><a class="menu_a" href="javascript:;" link="error404.html"><i class="fa fa-caret-right"></i>数据监控</a></li>
                 <li><a class="menu_a" href="javascript:;" link="error405.html"><i class="fa fa-caret-right"></i>服务器监控</a></li>
             </ul>
-        </li>
+        </li> -->
     </ul>
 </div>

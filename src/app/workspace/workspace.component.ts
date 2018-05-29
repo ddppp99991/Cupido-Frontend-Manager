@@ -20,12 +20,12 @@ export class WorkspaceComponent implements OnInit {
     //获取当前登陆人信息
     getUserInfo(){
         this.auth.getUserInfo().subscribe((resp) => {
-            if(resp.hasOwnProperty('code') && resp.code == '201'){
+            if(resp && resp.hasOwnProperty('status') && resp.status == '201'){
                 this.message['error']("未登录，请先登录。");
                 // this.route.navigateByUrl('/');
-            }else if(resp.hasOwnProperty('code') && resp.code == '200'){
-                this.message['success']("登陆成功。");
-                this.user = resp.msg;
+            }else if(resp && resp.hasOwnProperty('status') && resp.status == '200'){
+                // this.message['success']("登陆成功。");
+                this.user = resp.body.msg;
             }else {
                 this.message['warning']("系统错误，请联系管理员。");
             }

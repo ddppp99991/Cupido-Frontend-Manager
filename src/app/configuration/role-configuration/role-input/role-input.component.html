@@ -34,8 +34,8 @@
                             权限
                         </div>
                         <div class="col-xs-6 col-content">
-                            <el-select [model]="authority"  [clearable]="true" [multiple]="true" size="small" style="width:100%">
-                                <el-option *ngFor="let item of authoritys" [label]="item.label" [value]="item.value">
+                            <el-select [model]="authority" (modelChange)="modelChange($event)" [clearable]="true" [multiple]="true" size="small" style="width:100%">
+                                <el-option *ngFor="let item of authoritys" [label]="item.name" [value]="item.id">
                                 </el-option>
                             </el-select>
                         </div>
@@ -43,8 +43,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">确认</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" (click)="confirmBefore()">确认</button>
+                <button type="button" class="btn btn-default close-button" data-dismiss="modal">取消</button>
             </div>
         </div>
     </div>

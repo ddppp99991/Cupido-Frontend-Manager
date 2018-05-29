@@ -37,53 +37,27 @@
                             </label>
                         </div>
                         <label class="table-edit">
-                            <button class="btn btn-text" data-toggle="modal" data-target="#roleInputModal">
+                            <button class="btn btn-text" data-toggle="modal" data-target="#roleInputModal" (click)="openRoleModal()">
                                 <i class="el-icon-plus"></i>新增</button>
                         </label>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>编号</th>
                                     <th>角色名称</th>
                                     <th>描述</th>
+                                    <th>权限</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="odd gradeX">
-                                    <td>业务人员</td>
-                                    <td>业务人员业务人员</td>
+                                <tr class="odd gradeX" *ngFor="let role of roles; let idx=index">
+                                    <td>{{idx}}</td>
+                                    <td>{{role.name}}</td>
+                                    <td>{{role.description}}</td>
+                                    <td><span *ngFor="let r of role.list">{{r.name}}</span></td>
                                     <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#roleInputModal">
-                                            <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
-                                            <i class="el-icon-delete"></i>删除</button>
-                                    </td>
-                                </tr>
-                                <tr class="even gradeC">
-                                    <td>业务人员</td>
-                                    <td>业务人员业务人员</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#roleInputModal">
-                                            <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
-                                            <i class="el-icon-delete"></i>删除</button>
-                                    </td>
-                                </tr>
-                                <tr class="odd gradeA">
-                                    <td>业务人员</td>
-                                    <td>业务人员业务人员</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#roleInputModal">
-                                            <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
-                                            <i class="el-icon-delete"></i>删除</button>
-                                    </td>
-                                </tr>
-                                <tr class="even gradeA">
-                                    <td>业务人员</td>
-                                    <td>业务人员业务人员</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#roleInputModal">
+                                        <button class="btn btn-text" data-toggle="modal" data-target="#roleInputModal" (click)="openRoleModal(role)">
                                             <i class="el-icon-edit"></i>编辑</button>
                                         <button class="btn btn-text">
                                             <i class="el-icon-delete"></i>删除</button>
@@ -94,16 +68,16 @@
 
                     </div>
 
-                    <div class="fg-toolbar pagination-bottom">
+                    <!-- <div class="fg-toolbar pagination-bottom">
                         <div class="col-xs-12">
                             <el-pagination [total]="500" [layout]="['prev', 'pager', 'next', 'jumper', 'total']" (modelChange)="sizeChange($event)">
                             </el-pagination>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-<app-role-input></app-role-input>
+<app-role-input *ngIf="openRoleModalStatus" [opennerComponent]="this"></app-role-input>

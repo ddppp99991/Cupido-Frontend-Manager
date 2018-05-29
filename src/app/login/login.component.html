@@ -1,14 +1,13 @@
-<div id="particles-js"></div>
 <div id="loginbox">
     <div class="normal_text">
-        <h2>BitCupido Admin</h2>
+        <h2>Bi.xyz 系统后台</h2>
     </div>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" class="form-vertical">
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
-                    <input type="text" formControlName="username" name="username" [(ngModel)]="username" />
+                    <input type="text" formControlName="username" name="username"  placeholder="请输入用户名"/>
                     <div *ngIf="formErrors.username" class="info-error">{{ formErrors.username }}</div>
                 </div>
             </div>
@@ -16,7 +15,7 @@
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
-                    <input type="password" formControlName="password" name="password" [(ngModel)]="password" />
+                    <input type="password" formControlName="password" name="password"  placeholder="请输入密码"/>
                     <div *ngIf="formErrors.password" class="info-error">{{ formErrors.password }}</div>
                 </div>
 
@@ -36,3 +35,5 @@
     </form>
     
 </div>
+
+<canvas id="canvas"></canvas> 
