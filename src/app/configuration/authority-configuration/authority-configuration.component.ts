@@ -46,6 +46,8 @@ export class AuthorityConfigurationComponent implements OnInit {
     }
     findPermissions(){
         this.auth.findPermissions().subscribe((resp) => {
+            console.log(resp);
+            
             if(resp && resp.hasOwnProperty('status') && resp.status == '200'){
                 this.permissions = resp.body;
             }else{

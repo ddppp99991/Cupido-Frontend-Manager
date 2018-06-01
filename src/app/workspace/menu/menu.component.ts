@@ -11,10 +11,16 @@ declare var $: any; //引入jquery
 })
 export class MenuComponent implements OnInit {
     menuItems: any;
-    constructor() { }
+    constructor(private auth: AuthService) { }
 
     ngOnInit() {
         this.initMenuItem();
+        this.auth.sendHttpGet('getUserMenu.do').subscribe((resp)=>{
+            if(resp && resp.hasOwnProperty('status') && resp.status == '200'){
+                this.menuItems = resp.body;
+            }
+            
+        });
         this.menuItems=[
             {id:'123',name: '业务处理',route:'main',child:[{id:'123',name: '业务处理',route:'menuconfig'},{id:'123',name: '业务处理',route:'main'}]},
             {id:'123',name: '业务处理',route:'main',child:[{id:'123',name: '业务处理',route:'main'},{id:'123',name: '业务处理',route:'main'}]},

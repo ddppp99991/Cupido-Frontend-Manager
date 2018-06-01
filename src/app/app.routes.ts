@@ -18,6 +18,10 @@ import { UserConfigurationComponent } from './configuration/user-configuration/u
 import { CurrencyConfigurationComponent } from './configuration/currency-configuration/currency-configuration.component';
 //市场配置
 import { MarketConfigurationComponent } from './configuration/market-configuration/market-configuration.component';
+//后台用户管理
+import { ManagerUserConfigurationComponent } from './configuration/manager-user-configuration/manager-user-configuration.component';
+//部门管理
+import { DepartmentConfigurationComponent } from './configuration/department-configuration/department-configuration.component';
 
 //管理中心
 //后台充值
@@ -50,6 +54,9 @@ const adminChildRoutes: Routes = [
     { path: 'assestmanager', component: AssestManagerComponent },//用户资产管理
     { path: 'withdraw', component: WithdrawComponent },//用户资产管理
     { path: 'withdrawhistory', component: WithdrawHistoryComponent },//用户提现记录
+    { path: 'musermanager', component: ManagerUserConfigurationComponent },//后台用户管理
+    { path: 'depmanager', component: DepartmentConfigurationComponent },//部门管理
+    
 ];
 
 // 定义常量 路由

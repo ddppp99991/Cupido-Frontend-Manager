@@ -12,16 +12,16 @@ import { ElMessageService } from 'element-angular';
 export class LoginComponent implements OnInit {
     // 定义表单
     loginForm: FormGroup;
-    username;
+    email;
     password;
     // 表单验证不通过时显示的错误消息
     formErrors = {
-        username: '',
+        email: '',
         password: '',
     };
     // 为每一项表单验证添加说明文字
     validationMessage = {
-        'username': {
+        'email': {
             'minlength': '用户名长度最少为3个字符',
             'maxlength': '用户名长度最多为10个字符',
             'required': '请填写用户名',
@@ -45,10 +45,10 @@ export class LoginComponent implements OnInit {
     buildForm(): void {
         // 通过 formBuilder构建表单
         this.loginForm = this.fb.group({
-            /* 为 username 添加3项验证规则：
+            /* 为 email 添加3项验证规则：
              * 1.必填， 2.最大长度为10， 3.最小长度为3
             */
-            'username': ['', [
+            'email': ['', [
                 Validators.required,
             ]],
             'password': ['', [
@@ -92,14 +92,15 @@ export class LoginComponent implements OnInit {
 
     onSubmit(event) {
         if(event.status == 'VALID'){
-            let payload = {
-                'username': event.value.username,
+            const payload = {
+                'email': event.value.email,
                 'password': event.value.password
             }
+            
             this.auth.login(payload).subscribe((resp) => {
                 console.log(resp);
                 
-                if (resp != null && resp != undefined && resp.status == '200') {
+                if (resp != null && resp != undefined && resp.hasOwnProperty("status") && resp.status == '200') {
                     let data = resp.body;
                     localStorage.setItem('isfirstlogin', 'false');
                     //跳过验证 直接登录

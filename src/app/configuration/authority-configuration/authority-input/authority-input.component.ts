@@ -24,7 +24,8 @@ export class AuthorityInputComponent implements OnInit {
     systemMenus;// 从系统中查询出来的menu
     permission;//
     confirmType;
-    data3: any = []
+    data3: any = [];
+    menuList: any = {};
 
     constructor(private auth: AuthService, private message: ElMessageService, private route: Router) { }
 
@@ -46,29 +47,35 @@ export class AuthorityInputComponent implements OnInit {
             if (resp && resp.hasOwnProperty('status') && resp.status == '200') {
                 this.systemMenus = resp.body;
                 this.data3 = [];
+                console.log(resp);
+                
                 for (const data of this.systemMenus) {
+                    this.menuList[data.name] = data.id;
                     let arr = {
                         label: data.name,
-                        id: data.name,
+                        id: data.id,
                         children: [],
                         expanded: true,
                     }
                     for (const child of data.list) {
+                        this.menuList[child.name] = child.id;
                         let charr = {
                             label: child.name,
-                            id: child.name,
+                            id: child.id,
                         }
                         arr.children.push(charr);
                     }
                     this.data3.push(arr);
                 }
                 if (this.opennerComponent.parentData) {
-                    this.defaulet = this.opennerComponent.parentData.list;
+                    this.defaulet = this.opennerComponent.parentData.menuName;
                 }
             } else {
                 this.message['error']('没有权限，请重新登录。');
                 this.route.navigateByUrl('/');
             }
+            console.log(this.data3);
+            console.log(this.menuList);
         });
     }
     confirmbefore() {
@@ -80,11 +87,13 @@ export class AuthorityInputComponent implements OnInit {
         }
     }
     confirm() {
+        console.log(this.tree);
+        
         if (this.confirmType == 'add') {
             const payload = {
                 name: this.name,
                 description: this.description,
-                list: this.tree.findAllChecked(),
+                menuID: this.tree.findAllChecked().map(item =>  this.menuList[item]),
             }
             this.auth.addPermissions(payload).subscribe((resp) => {
                 if (resp && resp.hasOwnProperty('status') && resp.status == '200') {
@@ -100,7 +109,7 @@ export class AuthorityInputComponent implements OnInit {
                 id: this.permission.id,
                 name: this.name,
                 description: this.description,
-                list: this.tree.findAllChecked(),
+                menuID: this.tree.findAllChecked().map(item =>  this.menuList[item]),
             }
             this.auth.updatePermissions(payload).subscribe((resp) => {
                 if (resp && resp.hasOwnProperty('status') && resp.status == '200') {

@@ -79,78 +79,39 @@
                             </label>
                         </div>
                         <label class="table-edit">
-                            <button class="btn btn-text" data-toggle="modal" data-target="#userInputModal">
+                            <button class="btn btn-text" data-toggle="modal" data-target="#userInputModal" (click)="edit()">
                                 <i class="el-icon-plus"></i>新增</button>
                         </label>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>编号</th>
                                     <th>姓名</th>
                                     <th>性别</th>
                                     <th>账号</th>
                                     <th>部门</th>
                                     <th>电话</th>
                                     <th>状态</th>
-                                    <th></th>
+                                    <!-- <th></th> -->
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="odd gradeX">
-                                    <td>杜鹏</td>
+                                <tr class="odd gradeX" *ngFor="let user of Users;let idx = index">
+                                    <td>{{idx + 1}}</td>
+                                    <td>{{user.email}}</td>
                                     <td>男</td>
                                     <td>dupeng</td>
                                     <td>IT</td>
                                     <td>18081052106</td>
                                     <td>在职</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#userInputModal">
+                                    <!-- <td class="center">
+                                        <button class="btn btn-text" data-toggle="modal" data-target="#userInputModal" (click)="edit(user)">
                                             <i class="el-icon-edit"></i>编辑</button>
                                         <button class="btn btn-text">
                                             <i class="el-icon-delete"></i>删除</button>
-                                    </td>
+                                    </td> -->
                                 </tr>
-                                <tr class="even gradeC">
-                                    <td>杜鹏</td>
-                                    <td>男</td>
-                                    <td>dupeng</td>
-                                    <td>IT</td>
-                                    <td>18081052106</td>
-                                    <td>在职</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#userInputModal">
-                                            <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
-                                            <i class="el-icon-delete"></i>删除</button>
-                                    </td>
-                                </tr>
-                                <tr class="odd gradeA">
-                                    <td>杜鹏</td>
-                                    <td>男</td>
-                                    <td>dupeng</td>
-                                    <td>IT</td>
-                                    <td>18081052106</td>
-                                    <td>在职</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#userInputModal">
-                                            <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
-                                            <i class="el-icon-delete"></i>删除</button>
-                                    </td>
-                                </tr>
-                                <tr class="even gradeA">
-                                    <td>杜鹏</td>
-                                    <td>男</td>
-                                    <td>dupeng</td>
-                                    <td>IT</td>
-                                    <td>18081052106</td>
-                                    <td>在职</td>
-                                    <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#userInputModal">
-                                            <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text">
-                                            <i class="el-icon-delete"></i>删除</button>
-                                    </td>
-                                </tr>
+                                
                             </tbody>
                         </table>
 
@@ -168,4 +129,7 @@
         </div>
     </div>
 </div>
-<app-user-input></app-user-input>
+
+<app-user-input *ngIf="userModalStatus" [opennerComponent]="this"></app-user-input>
+
+<!-- <app-user-input *ngIf="userModalStatus" [opennerComponent]="this"></app-user-input> -->

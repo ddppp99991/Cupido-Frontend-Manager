@@ -1,0 +1,89 @@
+<!-- Modal -->
+<div class="modal fade" id="managerUserInputModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">用户{{this.opennerComponent.type}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label col-label-edit">
+                            邮箱
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <input [disabled]="opennerComponent.type == '添加' ? false : true" type="name" name="name" [(ngModel)]="email" class="form-control" (input)="checkEmail()"/>
+                        </div>
+                    </div>
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label col-label-edit">
+                            姓名
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <input type="name" name="name" [(ngModel)]="username" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label col-label-edit">
+                            性别
+                        </div>
+                        <div class="col-xs-3 col-content gender">
+                            <el-radio [(model)]="gender" label="男">男</el-radio>
+                            <el-radio [(model)]="gender" label="女">女</el-radio>
+                        </div>
+                    </div>
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label col-label-edit">
+                            手机号
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <input type="text" name="name" [(ngModel)]="telephone" class="form-control" (input)="checkPhone()" />
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label-edit">
+                            部门
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <el-select [(model)]="department" [clearable]="true"  size="small" style="width:100%">
+                                <el-option *ngFor="let dept of opennerComponent.Depts" [label]="dept.department" [value]="dept.department">
+                                  </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+                    
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label-edit">
+                            角色
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <el-select  [(model)]="roleID" [clearable]="true" [multiple]="true" size="small" style="width:100%">
+                                <el-option *ngFor="let role of opennerComponent.Roles" [label]="role.description" [value]="role.id">
+                                </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+
+                    <div class="row row-form">
+                        <div class="col-xs-2 col-label" style="padding-top: 3px;">
+                            状态
+                        </div>
+                        <div class="col-xs-6 col-content">
+                            <el-switch [elDisabled]="opennerComponent.type == '添加' ? true : false" [(model)]="station" active-text="在职" inactive-text="离职" [active-color]="'#67c23a'" [inactive-color]="'#dddddd'">
+                            </el-switch>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="confirm()">确认</button>
+                <button type="button" class="btn btn-default close-btn" data-dismiss="modal" (click)="colse()">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

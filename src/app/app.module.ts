@@ -40,6 +40,11 @@ import { ElModule } from 'element-angular'
 import 'element-angular/theme/index.css';
 import { WithdrawHistoryComponent } from './query-center/withdraw-history/withdraw-history.component';
 import { SelectorEmComponent } from './selector/selector-em/selector-em.component';
+import { Login2Component } from './login2/login2.component';
+import { ManagerUserConfigurationComponent } from './configuration/manager-user-configuration/manager-user-configuration.component';
+import { ManagerUserAddComponent } from './configuration/manager-user-configuration/manager-user-add/manager-user-add.component';
+import { DepartmentConfigurationComponent } from './configuration/department-configuration/department-configuration.component';
+import { DepartmentInputComponent } from './configuration/department-configuration/department-input/department-input.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +75,11 @@ import { SelectorEmComponent } from './selector/selector-em/selector-em.componen
     AssestInputComponent,
     WithdrawHistoryComponent,
     SelectorEmComponent,
+    Login2Component,
+    ManagerUserConfigurationComponent,
+    ManagerUserAddComponent,
+    DepartmentConfigurationComponent,
+    DepartmentInputComponent,
   ],
   imports: [
     BrowserModule,

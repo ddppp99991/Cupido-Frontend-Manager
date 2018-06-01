@@ -1,11 +1,11 @@
 <div id="sidebar" style="OVERFLOW-Y: auto; OVERFLOW-X:hidden;height:500px;">
     <ul>
-        <el-menu class="el-menu-vertical-demo" theme="dark">
+        <!-- <el-menu class="el-menu-vertical-demo" theme="dark">
             <el-submenu index="1" title="{{menu.name}}" *ngFor="let menu of menuItems">
-                <el-menu-item index="1-1" to="/workspace/{{child.route}}" *ngFor="let child of menu.child">{{child.name}}</el-menu-item>
+                <el-menu-item index="1-1" to="/workspace/{{child.route}}" *ngFor="let child of menu.list">{{child.name}}</el-menu-item>
             </el-submenu>
-        </el-menu>
-        <!-- <li class="submenu"> 
+        </el-menu> -->
+        <li class="submenu"> 
             <a href="javascript:;">
                 <i class="el-icon-document"></i> 
                 <span class="menu1_name">业务处理</span> 
@@ -37,8 +37,10 @@
             <ul>
                 <li><a class="menu_a" href="javascript:;" routerLink="menuconfig"><i class="fa fa-caret-right"></i>菜单配置</a></li>
                 <li><a class="menu_a" href="javascript:;" routerLink="authorityconfig"><i class="fa fa-caret-right"></i>权限配置</a></li>
+                <li><a class="menu_a" href="javascript:;" routerLink="depmanager"><i class="fa fa-caret-right"></i>部门配置</a></li>
                 <li><a class="menu_a" href="javascript:;" routerLink="roleconfig"><i class="fa fa-caret-right"></i>角色配置</a></li>
                 <li><a class="menu_a" href="javascript:;" routerLink="userconfig"><i class="fa fa-caret-right"></i>用户配置</a></li>
+                <li><a class="menu_a" href="javascript:;" routerLink="musermanager"><i class="fa fa-caret-right"></i>后台用户配置</a></li>
                 <li><a class="menu_a" href="javascript:;" routerLink="currencyconfig"><i class="fa fa-caret-right"></i>货币配置</a></li>
                 <li><a class="menu_a" href="javascript:;" routerLink="marketconfig"><i class="fa fa-caret-right"></i>市场配置</a></li>
             </ul>
@@ -65,6 +67,6 @@
                 <li><a class="menu_a" href="javascript:;" link="error404.html"><i class="fa fa-caret-right"></i>数据监控</a></li>
                 <li><a class="menu_a" href="javascript:;" link="error405.html"><i class="fa fa-caret-right"></i>服务器监控</a></li>
             </ul>
-        </li> -->
+        </li>
     </ul>
 </div>

@@ -3,7 +3,7 @@
         <a routerLink="/workspace" title="回首页" class="tip-bottom">
             <i class="fa fa-home"></i> 首页</a>
         <a href="javascript:;" class="tip-bottom">系统配置</a>
-        <a href="javascript:;" class="tip-bottom">权限配置</a>
+        <a href="javascript:;" class="tip-bottom">部门配置</a>
     </div>
 </div>
 
@@ -20,7 +20,7 @@
                         <span class="icon">
                             <i class="fa fa-th"></i>
                         </span>
-                        <h5>权限配置</h5>
+                        <h5>部门配置</h5>
                     </div>
 
                     <div class="widget-content nopadding">
@@ -37,29 +37,27 @@
                             </label>
                         </div>
                         <label class="table-edit">
-                            <button class="btn btn-text" data-toggle="modal" data-target="#authInputModal" (click)="openAuthorityModal()">
+                            <button class="btn btn-text" data-toggle="modal" data-target="#depInputModal" (click)="edit()">
                                 <i class="el-icon-plus"></i>新增</button>
                         </label>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>编号</th>
-                                    <th>权限名称</th>
-                                    <th>描述</th>
-                                    <th>菜单</th>
-                                    <th></th>
+                                    <th>部门名称</th>
+                                    <th>部门描述</th>
+                                    <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="odd gradeX" *ngFor="let permission of permissions; let idx=index">
-                                    <td>{{idx + 1}}</td>
-                                    <td>{{permission.name}}</td>
-                                    <td>{{permission.description}}</td>
-                                    <td>{{permission.menuName}}</td>
+                                <tr class="odd gradeX" *ngFor="let dep of Depts; let idx=index">
+                                    <td>{{idx+1}}</td>
+                                    <td>{{dep.department}}</td>
+                                    <td>{{dep.remark}}</td>
                                     <td class="center">
-                                        <button class="btn btn-text" data-toggle="modal" data-target="#authInputModal" (click)="openAuthorityModal(permission)">
+                                        <button class="btn btn-text" data-toggle="modal" data-target="#depInputModal" (click)="edit(dep)">
                                             <i class="el-icon-edit"></i>编辑</button>
-                                        <button class="btn btn-text" (click)="deleteBefore(permission)">
+                                        <button class="btn btn-text" (click)="delete(dep)">
                                             <i class="el-icon-delete"></i>删除</button>
                                     </td>
                                 </tr>
@@ -80,14 +78,4 @@
         </div>
     </div>
 </div>
-<app-authority-input *ngIf='openAuthorityStatus' [opennerComponent]="this"></app-authority-input>
-<el-dialog [(visible)]="toggle" [width]="10" [el-class]="'min-dialog'">
-    <ng-template #title>
-        <span><i class="el-icon-warning"></i>系统消息</span>
-    </ng-template>
-    <span>{{confirminfo}}</span>
-    <ng-template #footer>
-        <el-button type="primary" (click)="confirm()">确认</el-button>
-        <el-button (click)="toggle = false">取消</el-button>
-    </ng-template>
-</el-dialog>
+<app-department-input *ngIf="openDeptModalStatus" [opennerComponent]="this"></app-department-input>

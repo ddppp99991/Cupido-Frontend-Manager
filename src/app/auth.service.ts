@@ -148,4 +148,21 @@ export class AuthService {
         }).catch(e => { 
          return Observable.of(e); })
     }
+
+    sendHttpGet(url){
+        return this.http.get(this.BASE_URL + url,
+        {
+            withCredentials: true,
+            observe: 'response'
+        }).catch(e => { 
+         return Observable.of(e); })
+    }
+    sendHttpPost(url,payload){
+        return this.http.post(this.BASE_URL + url, payload,
+        {
+            withCredentials: true,
+            observe: 'response'
+        }).catch(e => { 
+         return Observable.of(e); })
+    }
 }
